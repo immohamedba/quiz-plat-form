@@ -1,27 +1,27 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Navbar from './pages/NavBar';
-import Login from './pages/authentifcations/Login';
-import Signup from './pages/authentifcations/Signup';
+import classes from './App.module.css';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import Home from './components/pages/Home';
+import Signup from './components/pages/authentifcations/Signup';
+import Login from './components/pages/authentifcations/Login';
+import { useAuthContext } from './hooks/useAuthContext';
 
 function App() {
+  const { user } = useAuthContext()
   return (
-    <div className="App">
+    <div className={classes.App}>
       <BrowserRouter>
-      <Navbar />
         <Routes>
-
-            <Route
+          <Route
             path="/"
-            element={<Login />}
+            element={user ? <Home /> : <Navigate to="/login" />}
           />
           <Route
             path="/login"
-            element={<Login />}
+            element={!user ? <Login /> : <Navigate to="/" />}
           />
           <Route
             path="/signup"
-            element={<Signup />}
+            element={!user ? <Signup /> : <Navigate to="/" />}
           />
 
         </Routes>
