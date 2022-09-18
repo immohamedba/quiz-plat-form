@@ -3,8 +3,10 @@ const express = require('express')
 const mongoose = require("mongoose");
 const testRoutes = require('./routes/tests');
 const userRoutes = require('./routes/user');
-const trainerRoutes = require('./routes/trainers');
+const trainerRoutes = require('./routes/IlefTrainers');
 const testTakenRoutes = require('./routes/testTaken');
+const webInfoRoutes = require('./routes/webInfo');
+
 
 //express app
 const app = express();
@@ -18,9 +20,10 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 //Routes
+app.use('/api/webinfo', webInfoRoutes)
 app.use('/api/tests', testRoutes)
 app.use('/api/users', userRoutes)
-app.use('/api/trainers', trainerRoutes)
+app.use('/api/ilefTrainers', trainerRoutes)
 app.use('/api/testTaken', testTakenRoutes)
 
 // connect to db 

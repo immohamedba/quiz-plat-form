@@ -1,9 +1,9 @@
 import classes from './App.module.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import Home from './components/pages/Home';
 import Signup from './components/pages/authentifcations/Signup';
 import Login from './components/pages/authentifcations/Login';
 import { useAuthContext } from './hooks/useAuthContext';
+import Home from './components/Home/Home';
 
 function App() {
   const { user } = useAuthContext()
@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={user ? <Home /> : <Navigate to="/login" />}
+            element={<Home />}
           />
           <Route
             path="/login"

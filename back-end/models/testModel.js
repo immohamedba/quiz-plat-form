@@ -19,8 +19,8 @@ const SessionSchema = new schema({
     code: reqString,
     startAt: Date,
     endtAt: Date,
-    learners :[{
-        email : reqString
+    learners: [{
+        email: reqString
     }]
 })
 
@@ -36,7 +36,11 @@ const QuestionSchema = new schema({
 const testSchema = new schema({
     _id: reqString,
     name: reqString,
+
+    trainerID: reqString,
+    trainerName: reqString,
     category: reqString,
+    scoreReq: reqNumber,
     duration: reqNumber,
     nbQuestion: reqNumber,
 
@@ -46,7 +50,7 @@ const testSchema = new schema({
     subdomain: [reqString],
     access: reqString,
     questions: [QuestionSchema],
-    sessions :[SessionSchema]
+    sessions: [SessionSchema]
 }, { timestamps: true })
 
 module.exports = mongoose.model('test', testSchema);

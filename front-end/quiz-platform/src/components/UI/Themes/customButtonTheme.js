@@ -10,8 +10,23 @@ const CustomTheme = createTheme({
                         color: "#C23838",
                         backgroundColor: '#F9F7F7',
                         fontSize: 'medium',
-                        ":hover" :{
+                        ":hover": {
                             backgroundColor: '#ECEBEB',
+                        }
+                    }
+                },
+                {
+                    props: { variant: "braun" },
+                    style: {
+                        fontWeight: "bold",
+                        color:'#F9F7F7',
+                        backgroundColor: '#C23838',
+                        fontSize: 'medium',
+                        '@media (max-width: 768px)': {
+                            fontSize :'small',
+                          },
+                        ":hover": {
+                            backgroundColor: '#DC2222',
                         }
                     }
                 }
@@ -19,7 +34,7 @@ const CustomTheme = createTheme({
             defaultProps: {
                 disableElevation: true,
                 disableFocusRipple: true,
-                
+
             }
         }
     }

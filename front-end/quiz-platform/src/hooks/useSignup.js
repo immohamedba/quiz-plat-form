@@ -8,7 +8,7 @@ export const useSignup = () => {
 
     const Signup = async (email, password, firstName, lastName, role, phone) => {
         setIsLoading(true)
-        setError(null)
+        setError(null) 
         const _id = email;
 
         const response = await fetch('/api/users/signup', {

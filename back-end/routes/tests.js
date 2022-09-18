@@ -10,7 +10,7 @@ const requireAutth = require('../middleware/requireAuth')
 const router = express.Router();
 
 //require auth for all testes 
-router.use(requireAutth)
+//router.use(requireAutth)
 //Get all test
 router.get('/', getTests)
 
