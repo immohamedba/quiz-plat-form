@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useSignup } from '../../../hooks/useSignup';
 import { Typography, Box } from '@mui/material';
-import { Stack, TextField, MenuItem, Grid,Link } from '@mui/material'
+import { Stack, TextField, MenuItem, Grid, Link } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles';
 import BoldVariant from '../../UI/Button/CustomVariantButton';
 import { CustomTheme } from '../../UI/Themes/customButtonTheme';
@@ -50,21 +50,30 @@ const Signup = () => {
                 justifyContent: 'center'
             }}>
                 <Stack className={classes.textFieldRow} sx={{ display: 'flex', flexDirection: 'row' }}>
-                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white" }}>First name</Typography>
+                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white", width: '20%' }}>First name</Typography>
 
                     <TextField className={classes.texfield} type="text"
                         variant="standard"
-                        InputProps={{ disableUnderline: true, style: { textAlign: 'center' } }}
+                        InputProps={{
+                            disableUnderline: true, inputProps: {
+                                style: { textAlign: "center", backgroundColor: "white" }
+                            }
+                        }}
                         onChange={(e) => { setFirstName(e.target.value) }}
                         value={firstName}
                         required
                     />
                 </Stack>
                 <Stack className={classes.textFieldRow} sx={{ display: 'flex', flexDirection: 'row' }}>
-                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white" }}>Last name</Typography>
+                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white", width: '20%' }}>Last name</Typography>
                     <TextField className={classes.texfield} type="text"
                         variant="standard"
-                        InputProps={{ disableUnderline: true, style: { textAlign: 'center' } }}
+                        InputProps={{
+                            disableUnderline: true, inputProps: {
+                                style: { height: '100%', width: '100%', textAlign: "center", backgroundColor: 'white' }
+                            }
+                        }
+                        }
                         onChange={(e) => { setLastName(e.target.value) }}
                         value={lastName}
                         required
@@ -72,10 +81,14 @@ const Signup = () => {
                 </Stack>
 
                 <Stack className={classes.textFieldRow} sx={{ display: 'flex', flexDirection: 'row' }}>
-                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white" }}>E-mail</Typography>
-                    <TextField className={`${classes.texfield} ${classes.emailField}`} type="email"
+                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white", width: '20%' }}>E-mail</Typography>
+                    <TextField className={classes.texfield} type="email"
                         variant="standard"
-                        InputProps={{ disableUnderline: true, style: { textAlign: 'center' } }}
+                        InputProps={{
+                            disableUnderline: true, inputProps: {
+                                style: { textAlign: "center", backgroundColor: 'white' }
+                            }
+                        }}
                         onChange={(e) => { setEmail(e.target.value) }}
                         value={email}
                         required
@@ -83,19 +96,23 @@ const Signup = () => {
                 </Stack>
 
                 <Stack className={classes.textFieldRow} sx={{ display: 'flex', flexDirection: 'row' }}>
-                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white" }}>Password</Typography>
+                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white", width: '20%' }}>Password</Typography>
 
                     <TextField className={classes.texfield} type="password"
                         variant="standard"
-                        InputProps={{ disableUnderline: true, style: { textAlign: 'center' } }}
+                        InputProps={{
+                            disableUnderline: true, inputProps: {
+                                style: { textAlign: "center", backgroundColor: 'white' }
+                            }
+                        }}
                         onChange={(e) => { setPassword(e.target.value) }}
                         value={password}
                         required
                     />
                 </Stack>
                 <Stack className={classes.textFieldRow} sx={{ display: 'flex', flexDirection: 'row' }}>
-                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white" }}>Role</Typography>
-                    <TextField className={`${classes.texfield} ${classes.emailField}`}
+                    <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white", width: '20%' }}>Role</Typography>
+                    <TextField className={classes.texfield}
                         variant="standard"
                         InputProps={{ disableUnderline: true, style: { textAlign: 'center' } }}
                         select
@@ -109,11 +126,15 @@ const Signup = () => {
                 </Stack>
                 {role === 'trainer' && (
                     <Stack className={classes.textFieldRow} sx={{ display: 'flex', flexDirection: 'row' }}>
-                        <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white" }}>phone</Typography>
+                        <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white", width: '20%' }}>phone</Typography>
 
-                        <TextField className={`${classes.texfield} ${classes.emailField}`} type="text"
+                        <TextField className={`${classes.texfield} ${classes.inptField}`} type="text"
                             variant="standard"
-                            InputProps={{ disableUnderline: true, style: { textAlign: 'center' } }}
+                            InputProps={{
+                                disableUnderline: true, inputProps: {
+                                    style: { textAlign: "center", backgroundColor: 'white' }
+                                }
+                            }}
                             onChange={(e) => { setPhone(e.target.value) }}
                             value={phone}
                             required
@@ -126,7 +147,7 @@ const Signup = () => {
                     justifyContent: 'space-around'
                 }}>
                     <ThemeProvider theme={CustomTheme} >
-                        <BoldVariant action='Sign up' isDisabled={isLoading} onClick={handleSubmit} />
+                        <BoldVariant action='Sign up' diisabled={isLoading} onClick={handleSubmit} />
                     </ThemeProvider>
                     <Typography variant='body2' color="white" >
                         <Link href='./signup' color='white' underline='hover'> Have an account ?</Link>
@@ -139,43 +160,3 @@ const Signup = () => {
 }
 
 export default Signup
-
-
-/*<form onSubmit={handleSubmit}>
-                    <h3> Signup </h3>
-                    <label> Email :</label>
-                    <input type="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                    />
-                    <label>First Name :</label>
-                    <input type="text"
-                        onChange={(e) => setFirstName(e.target.value)}
-                        value={firstName}
-                    />
-                    <label>Last Name :</label>
-                    <input type="text"
-                        onChange={(e) => setLastName(e.target.value)}
-                        value={lastName}
-                    />
-                    <label> Password :</label>
-                    <input type="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                    />
-
-                    <label htmlFor="role">Choose a Role:</label>
-
-                    <select id="role" onChange={(e) => setRole(e.target.value)}>
-                        <option defaultValue="learner">Learner</option>
-                        <option value="trainer">Trainer</option>
-                    </select>
-                    {role === 'trainer' && (<div>
-                        <label> Phone: </label>
-                        <input type="number"
-                            onChange={(e) => setPhone(e.target.value)}
-                            value={phone}
-                        />
-                    </div>)}
-                    <button disabled={isLoading}>Sign up</button>
-                    {error && <div> {error}</div>} */

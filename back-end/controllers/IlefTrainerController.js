@@ -1,4 +1,4 @@
-const Trainer = require('../models/TrainerModel');
+const Trainer = require('../models/IlefTrainerModel');
 
 // get all trainers
 const getTrainers = async (req, res) => {
@@ -18,9 +18,9 @@ const getTrainer = async (req, res) => {
 
 // create a new trainer
 const createTrainer = async (req, res) => {
-    const { _id, firstName, lastName, password, description, phone } = req.body;
+    const { _id, firstName, lastName, phone, speciality, company, skills, moreInf } = req.body;
     try {
-        const trainer = await Trainer.create({ _id, firstName, lastName, password, description, phone })
+        const trainer = await Trainer.create({ _id, firstName, lastName, phone, speciality, company, skills, moreInf })
         res.status(200).json(trainer)
     } catch (error) {
         res.status(400).json({ error: error.message })

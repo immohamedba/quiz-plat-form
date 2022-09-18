@@ -20,11 +20,11 @@ const getTest = async (req, res) => {
 // create new test
 
 const createTest = async (req, res) => {
-    const { _id, name, category, duration, nbQuestion,
+    const { _id, name, category, trainerID, trainerName, duration, nbQuestion, scoreReq,
         rating, disponibility, subdomain, access, questions, sessions } = req.body;
     try {
         const test = await Test.create({
-            _id, name, category, duration, nbQuestion, rating,
+            _id, name, category, trainerID, trainerName, duration, nbQuestion, scoreReq, rating,
             disponibility, subdomain, access, questions, sessions
         })
         res.status(200).json(test)

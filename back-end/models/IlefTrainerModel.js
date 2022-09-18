@@ -5,10 +5,6 @@ const trainerSchema = new schema({
         type: String,
         required: true
     },
-    password: {
-        type: String,
-        required: true
-    },
     firstName: {
         type: String,
         required: true
@@ -17,12 +13,24 @@ const trainerSchema = new schema({
         type: String,
         required: true
     },
-    description: {
-        type: String
-    },
     phone: {
         type: Number,
         required: true
     },
+    speciality: {
+        type: String,
+        required: true
+    },
+    skills: {
+        type: String,
+        required: true
+    },
+    company: {
+        type: String,
+        required: true
+    },
+    moreInf: {
+        type: String
+    }
 }, { timestamps: true })
 module.exports = mongoose.model('trainer', trainerSchema);

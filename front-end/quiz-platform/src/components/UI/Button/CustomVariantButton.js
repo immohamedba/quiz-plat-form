@@ -1,15 +1,20 @@
 import { Button } from '@mui/material'
 export default function BoldVariant(props) {
-    return (
+    const {action, ...rest} =props
+    return ( 
         <Button
-            variant='auth'
-            disableElevation
-            disabled ={props.isDisabled}
-            type ={props.type}
-            onClick ={props.onClick}
+        {...rest}
             >
             {props.action}
         </Button>
     )
-}
-//{props.action} 
+};
+
+/* 
+            variant={props.variant}
+            disableElevation
+            disabled ={props.isDisabled}
+            type ={props.type}
+            onClick ={props.onClick}
+            href={props.href}
+*/

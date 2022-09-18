@@ -1,8 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { Typography, Box } from '@mui/material';
+import { Typography, Box,Stack, TextField, Link  } from '@mui/material';
 import { useSLogin } from './../../../hooks/useLogin';
-import { Stack, TextField, Link } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles';
 import BoldVariant from '../../UI/Button/CustomVariantButton';
 import { CustomTheme } from '../../UI/Themes/customButtonTheme';
@@ -27,10 +26,9 @@ const Login = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-
         }}>
             <Typography variant='h6' sx={{ fontWeight: 'bold', color: "#C23838" }}>Let's get started now ! </Typography>
-            <Typography variant='h8' padding={2} paddingBottom={12} sx={{ fontWeight: 'bold'}}>
+            <Typography variant='h8' padding={2} paddingBottom={4} sx={{ fontWeight: 'bold'}}>
                  
                  <Link href='./signup' color='#702616' underline='hover'>Or create an account if not registred yet</Link>
                  </Typography>
@@ -38,13 +36,15 @@ const Login = () => {
                 component="img"
                 sx={{
                     height: 90,
-                    width: 120,
+                    width: 110,
                     borderRadius: '50%',
-                    position: 'absolute',
                     bgcolor: '#F9F7F7',
-                    top: '215px'
-                    /*maxHeight: { xs: 233, md: 167 },
-                    maxWidth: { xs: 350, md: 250 }, */
+                    position: 'relative',
+                    top:'40px',
+                    ['@media (max-height:700px)']: { // eslint-disable-line no-useless-computed-key
+                        height: 70,
+                        width: 90,
+                      }   
                 }}
                 alt="logo ilef info service."
                 src={logo}
@@ -58,7 +58,11 @@ const Login = () => {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     bgcolor: '#C23838',
-                    borderRadius: '14px'
+                    borderRadius: '14px',
+                    '@media (max-height:700px)': {
+                        height: '350px',
+                        width: '300px',
+                      }    
                 }}
             >
                 <Typography variant='h8' paddingBottom={2} sx={{ fontWeight: 'bold', color: "white" }}>E-mail : </Typography>
@@ -67,7 +71,8 @@ const Login = () => {
                     marginBottom: '20px',
                     borderRadius: '5px',
                     height: '40px',
-                    width: '80%'
+                    width: '80%',
+                    alignItems: 'center',
                 }}
 
                     type='email'
@@ -97,7 +102,7 @@ const Login = () => {
                 />
                 <Typography variant='h8' color="white" marginBottom={0.5}> {error && error} </Typography>
                 <ThemeProvider theme={CustomTheme}>
-                    <BoldVariant action='Log in' isDisabled={isLoading} onClick={handleSubmit} />
+                    <BoldVariant variant={'auth'} action='Log in' disabled={isLoading} onClick={handleSubmit} />
                 </ThemeProvider>
                 {/*  { <Button variant="contained" sx={{ bgcolor: '#F9F7F7', }} disabled={isLoading} > Log in </Button>
                 <button disabled={isLoading}>Log in</button> }
