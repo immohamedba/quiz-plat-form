@@ -9,7 +9,7 @@ const createToken = (_id) => {
 
 // signup user
 const singupUser = async (req, res) => {
-// a vefier si ça marche
+    // a vefier si ça marche
     const { _id, firstName, lastName, password, role, phone } = req.body;
     try {
         const user = await User.signup(_id, firstName, lastName, password, role, phone);
@@ -20,7 +20,7 @@ const singupUser = async (req, res) => {
         res.status(400).json({ error: error.message })
     }
 }
-// login user
+// login user 
 const loginUser = async (req, res) => {
     const { _id, password } = req.body;
     console.log("in login User ", _id, password)
@@ -29,7 +29,12 @@ const loginUser = async (req, res) => {
         // create a Taken
         const token = createToken(user._id);
 
-        res.status(200).json({ _id, token })
+        //res.status(200).json({ _id, token })
+        //----------------------------modification------------------------ 
+        firstName = user.firstName;
+        lastName = user.lastName;
+        res.status(200).json({ _id, token, firstName, lastName })
+        //----------------------------------------------------------------
     } catch (error) {
         res.status(400).json({ error: error.message })
     }

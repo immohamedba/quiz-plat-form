@@ -1,0 +1,41 @@
+{
+    "questions": [
+        {
+            "question": " True or flase question here ",
+            "subdomain": "",
+            "answers": [
+                {
+                    "answer1": "True",
+                    "validity": true
+                },
+                {
+                    "answer2": "False",
+                    "validity": false
+                }
+            ]
+        },
+        {
+            "question": " multiple question",
+            "subdomain": "",
+            "answers": [
+                {
+                    "answer": "answer1",
+                    "validity": false
+                },
+                {
+                    "answer": "answer2",
+                    "validity": true
+                },
+                {
+                    "answer": "answer3",
+                    "validity": false
+                },
+                {
+                    "answer": "answerN",
+                    "validity": false
+                }
+            ],
+            "justification": "justification here"
+        }
+    ]
+}

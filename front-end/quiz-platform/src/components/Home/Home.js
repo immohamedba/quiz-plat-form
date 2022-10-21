@@ -24,8 +24,6 @@ const Home = () => {
 
     }, []);
 
-
-
     const items = [
         { label: 'Home', href: '#home' },
         { label: 'About us', href: '#aboutus' },

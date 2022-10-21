@@ -68,7 +68,6 @@ userSchema.statics.signup = async function (_id, firstName, lastName, password, 
     return user
         ;
 }
-
 //
 userSchema.statics.login = async function (_id, password) {
     //console.log("in statics.login, email: ", _id, "password: ", password )

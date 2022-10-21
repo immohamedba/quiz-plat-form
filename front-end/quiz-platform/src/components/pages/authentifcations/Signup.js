@@ -9,9 +9,9 @@ import { CustomTheme } from '../../UI/Themes/customButtonTheme';
 import logo from '../../../assets/logoIlef.png';
 import classes from './signup.module.css'
 const Signup = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [firstName, setFirstName] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [role, setRole] = useState('learner');
     const [phone, setPhone] = useState('');
@@ -112,7 +112,7 @@ const Signup = () => {
                 </Stack>
                 <Stack className={classes.textFieldRow} sx={{ display: 'flex', flexDirection: 'row' }}>
                     <Typography variant='h8' paddingBottom={1} sx={{ fontWeight: 'bold', color: "white", width: '20%' }}>Role</Typography>
-                    <TextField className={classes.texfield}
+                    <TextField className={classes.texfield} 
                         variant="standard"
                         InputProps={{ disableUnderline: true, style: { textAlign: 'center' } }}
                         select
@@ -147,10 +147,10 @@ const Signup = () => {
                     justifyContent: 'space-around'
                 }}>
                     <ThemeProvider theme={CustomTheme} >
-                        <BoldVariant action='Sign up' diisabled={isLoading} onClick={handleSubmit} />
+                        <BoldVariant variant='auth' action='Sign up' diisabled={isLoading} onClick={handleSubmit} />
                     </ThemeProvider>
                     <Typography variant='body2' color="white" >
-                        <Link href='./signup' color='white' underline='hover'> Have an account ?</Link>
+                        <Link href='./login' color='white' underline='hover'> Have an account ?</Link>
                     </Typography>
                 </Stack>
 

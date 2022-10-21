@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Typography, Box,Stack, TextField, Link  } from '@mui/material';
+import { Typography, Box, Stack, TextField, Link } from '@mui/material';
 import { useSLogin } from './../../../hooks/useLogin';
 import { ThemeProvider } from '@mui/material/styles';
 import BoldVariant from '../../UI/Button/CustomVariantButton';
@@ -15,7 +15,6 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const _id = email;
-        console.log(_id, password);
         await Login(_id, password);
     }
 
@@ -28,10 +27,10 @@ const Login = () => {
             justifyContent: 'center',
         }}>
             <Typography variant='h6' sx={{ fontWeight: 'bold', color: "#C23838" }}>Let's get started now ! </Typography>
-            <Typography variant='h8' padding={2} paddingBottom={4} sx={{ fontWeight: 'bold'}}>
-                 
-                 <Link href='./signup' color='#702616' underline='hover'>Or create an account if not registred yet</Link>
-                 </Typography>
+            <Typography variant='h8' padding={2} paddingBottom={4} sx={{ fontWeight: 'bold' }}>
+
+                <Link href='./signup' color='#702616' underline='hover'>Or create an account if not registred yet</Link>
+            </Typography>
             <Box
                 component="img"
                 sx={{
@@ -40,11 +39,11 @@ const Login = () => {
                     borderRadius: '50%',
                     bgcolor: '#F9F7F7',
                     position: 'relative',
-                    top:'40px',
-                    ['@media (max-height:700px)']: { // eslint-disable-line no-useless-computed-key
+                    top: '40px',
+                    '@media (max-height:700px)': {
                         height: 70,
                         width: 90,
-                      }   
+                    }
                 }}
                 alt="logo ilef info service."
                 src={logo}
@@ -62,7 +61,7 @@ const Login = () => {
                     '@media (max-height:700px)': {
                         height: '350px',
                         width: '300px',
-                      }    
+                    }
                 }}
             >
                 <Typography variant='h8' paddingBottom={2} sx={{ fontWeight: 'bold', color: "white" }}>E-mail : </Typography>
@@ -104,20 +103,8 @@ const Login = () => {
                 <ThemeProvider theme={CustomTheme}>
                     <BoldVariant variant={'auth'} action='Log in' disabled={isLoading} onClick={handleSubmit} />
                 </ThemeProvider>
-                {/*  { <Button variant="contained" sx={{ bgcolor: '#F9F7F7', }} disabled={isLoading} > Log in </Button>
-                <button disabled={isLoading}>Log in</button> }
-                {error && <div>{error}</div>}*/}
             </Stack>
         </Stack>
     )
 };
 export default Login;
-/*<input type="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}/>
-
-                    <label> Password :</label>
-                    <input type="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                    />*/
