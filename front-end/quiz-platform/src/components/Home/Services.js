@@ -44,7 +44,7 @@ const Services = (props) => {
                     display: 'flex',
                     flexDirection: 'column',
                     padding:2
-                }}>
+                }}><Typography variant='subtitle1' m={1}  fontWeight='bold'>Service</Typography>
                     {props.ilefInfos[0].service.trainers}
                     {/*<Typography variant='subtitle1' m={1} fontWeight='bold'>Trainer</Typography>
                     <Typography variant='body2'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </Typography>

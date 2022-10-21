@@ -4,7 +4,8 @@ const {
     getTests,
     getTest,
     deleteTest,
-    updateTest
+    updateTest,
+    downloadTestFile
 } = require('../controllers/testController')
 const requireAutth = require('../middleware/requireAuth')
 const router = express.Router();
@@ -25,5 +26,8 @@ router.delete('/:id', deleteTest)
 
 // update a test
 router.patch('/:id', updateTest)
+
+//download testfile
+router.get('/download/testfile', downloadTestFile)
 
 module.exports = router;

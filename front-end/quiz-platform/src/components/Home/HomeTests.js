@@ -23,7 +23,7 @@ export const HomeTests = () => {
 
     return ( 
         <Stack
-            sx={{
+            sx={{ 
                 marginTop: 5,
                 width: '85%',
                 height: 'auto',

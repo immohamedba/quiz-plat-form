@@ -5,6 +5,7 @@ const reqString = {
     type: String,
     required: true
 };
+
 const reqBoolean = {
     type: Boolean,
     required: true
@@ -14,6 +15,7 @@ const reqNumber = {
     type: Number,
     required: true
 };
+
 const SessionSchema = new schema({
     _id: reqString,
     code: reqString,
@@ -36,7 +38,6 @@ const QuestionSchema = new schema({
 const testSchema = new schema({
     _id: reqString,
     name: reqString,
-
     trainerID: reqString,
     trainerName: reqString,
     category: reqString,
@@ -44,10 +45,10 @@ const testSchema = new schema({
     duration: reqNumber,
     nbQuestion: reqNumber,
 
-    rating: reqNumber,
+    rating: Number,
     disponibility: reqBoolean,
-
-    subdomain: [reqString],
+    description :String, 
+    subdomains: [reqString],
     access: reqString,
     questions: [QuestionSchema],
     sessions: [SessionSchema]
